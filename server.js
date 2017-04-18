@@ -12,10 +12,11 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 // mongoose.connect('mongodb://localhost/url')
 var url = process.env.MONGOLAB_URI
-mongoose.connect('mongodb://heroku_whq4xzvg:admin2017@ds163020.mlab.com:63020/heroku_whq4xzvg')
+// mongoose.connect('mongodb://heroku_whq4xzvg:admin2017@ds163020.mlab.com:63020/heroku_whq4xzvg')
 console.log(url)
-mongoose.connection.on('connected', (m)=>{
-  console.log('connected to mongoLAB')
+mongoose.connect(process.env.MONGOLAB_URI, (err)=>{
+if(err) {throw err}
+else{console.log('mongodb connnected')}
 })
 
 
