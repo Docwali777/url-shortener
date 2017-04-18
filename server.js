@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 // mongoose.connect('mongodb://localhost/url')
 var url = process.env.MONGOLAB_URI
 mongoose.connect('
-mongodb://<dbuser>:<dbpassword>@ds163020.mlab.com:63020/heroku_whq4xzvg
+mongodb://admin:admin>@ds163020.mlab.com:63020/heroku_whq4xzvg
 ' || 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener')
 
 mongoose.connection.on('connected', ()=>{
