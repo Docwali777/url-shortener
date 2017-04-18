@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 // mongoose.connect('mongodb://localhost/url')
 // 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener'
-var url = process.env.MONGODB_URI
+var url = process.env.MONGODB_URI || 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener'
 // || 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener'
 console.log(url)
 // || 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener'
@@ -58,10 +58,11 @@ if(url !== ''){
 
 app.get('/:data', (req, res)=>{
 let code =req.params.data
+
 URL.findOne({id: code}, (err, url)=>{
   if(err) {throw err}
   else{
-    res.redirect(`${url.url}`)
+    res.json(`${url.url}`)
   }
 })
 })
