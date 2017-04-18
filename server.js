@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 var url = process.env.MONGOLAB_URI
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener')
 
-mongoose.connection.on('connected', (m)=>{
+mongoose.connection.on('connected', ()=>{
   console.log('connected to mongoLAB')
 })
 
