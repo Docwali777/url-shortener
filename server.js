@@ -12,11 +12,9 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 // mongoose.connect('mongodb://localhost/url')
 var url = process.env.MONGOLAB_URI
-mongoose.connect('
-mongodb://admin:admin>@ds163020.mlab.com:63020/heroku_whq4xzvg
-' || 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener')
-
-mongoose.connection.on('connected', ()=>{
+mongoose.connect('mongodb://heroku_whq4xzvg:admin2017@ds163340.mlab.com:63340/urlshortener' || 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener')
+heroku_whq4xzvg
+mongoose.connection.on('connected', (m)=>{
   console.log('connected to mongoLAB')
 })
 
