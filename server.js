@@ -49,7 +49,7 @@ if(url !== ''){
   })
     res.render('index', { //render to index page
       url: req.body.url,
-      shortenedUrl: `https://damp-savannah-45662.herokuapp.com/${code}`
+      shortenedUrl: `https://damp-savannah-45662.herokuapp.com/new/${code}`
     })
 } else {res.send('Please enter URL')}
 })
