@@ -35,7 +35,7 @@ app.get('/', (req, res)=>{
   })
 })
 
-app.post('/', (req, res)=>{
+app.post('/new', (req, res)=>{
 let url = req.body.url //get form data
 let code = random()   //generate random URL code
 var baseURL =req.headers.referer
@@ -54,7 +54,7 @@ if(url !== ''){
 } else {res.send('Please enter URL')}
 })
 
-app.get('/:data', (req, res)=>{
+app.get('/new/:data', (req, res)=>{
 let code =req.params.data
 
 URL.findOne({id: code}, (err, url)=>{
