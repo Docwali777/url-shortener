@@ -7,17 +7,15 @@ let{Schema} = mongoose
 const PORT = process.env.PORT || 3000
 const URL = require('./Schemas/url');
 const random = require('./functions/random')
+const path = require('path');
+
+app.set('views', path.join(__dirname , 'views'))
 
 app.use(bodyParser.urlencoded({extended: true}))
 
-// mongoose.connect('mongodb://localhost/url')
-// 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener'
 var url = process.env.MONGODB_URI
-// || 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener'
+
 console.log(url)
-// || 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener'
-// console.log(url)
-// || 'mongodb://admin2:admin2017@ds163340.mlab.com:63340/urlshortener'
 mongoose.connect(url, (err)=>{
   if(err){ console.log('error')}
   else{console.log('connected')}
