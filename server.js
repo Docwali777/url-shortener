@@ -29,15 +29,16 @@ app.set('view engine', 'ejs')
 
 app.get('/', (req, res)=>{
   res.render('index', {
-    url: 'original URL',
-    shortenedUrl: 'shortenedUrl'
+    url: '',
+    shortenedUrl: ''
 
   })
 })
 
-app.post('/new', (req, res)=>{
+app.post('/newURL', (req, res)=>{
 let url = req.body.url //get form data
 let code = random()   //generate random URL code
+console.log(req.headers.origin)
 var baseURL =req.headers.referer
 if(url !== ''){
   var newUrl = new URL({ //create mongodb data
@@ -49,17 +50,18 @@ if(url !== ''){
   })
     res.render('index', { //render to index page
       url: req.body.url,
-      shortenedUrl: `https://damp-savannah-45662.herokuapp.com/new/${code}`
+      shortenedUrl: `${req.headers.origin}/newURL/${code}`
     })
 } else {res.send('Please enter URL')}
 })
 
-app.get('/new/:data', (req, res)=>{
+app.get('/newURL/:data', (req, res)=>{
 let code =req.params.data
 
 URL.findOne({id: code}, (err, url)=>{
   if(err) {throw err}
   else{
+    console.log(url)
     res.redirect(url.url)
 
   }
