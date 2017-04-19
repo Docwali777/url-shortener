@@ -14,17 +14,17 @@ app.use(bodyParser.urlencoded({extended: true}))
 // 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener'
 var url = process.env.MONGODB_URI
 // || 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener'
-console.log(process.env)
+console.log(url)
 // || 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener'
 // console.log(url)
-// || 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener'
-mongoose.connect(url, (err)=>{
+// || 'mongodb://admin2:admin2017@ds163340.mlab.com:63340/urlshortener'
+mongoose.connect('mongodb://admin2:admin2017@ds163340.mlab.com:63340/urlshortener', (err)=>{
   if(err){ console.log('error')}
   else{console.log('connected')}
 } )
 
 mongoose.connection.on('connected', ()=>{
-  console.log('connected to mongoLAB')
+  console.log('mongoLAB')
 })
 
 
@@ -33,8 +33,8 @@ app.set('view engine', 'ejs')
 
 app.get('/', (req, res)=>{
   res.render('index', {
-    url: '',
-    shortenedUrl: ''
+    url: ' ',
+    shortenedUrl: ' '
 
   })
 })
@@ -64,7 +64,7 @@ let code =req.params.data
 URL.findOne({id: code}, (err, url)=>{
   if(err) {throw err}
   else{
-    res.redirect(`${url.url}`)
+    res.json(`${url.url}`)
   }
 })
 })
