@@ -9,8 +9,6 @@ const URL = require('./Schemas/url');
 const random = require('./functions/random')
 const path = require('path');
 
-app.set('views', path.join(__dirname , 'views'))
-
 app.use(bodyParser.urlencoded({extended: true}))
 
 var url = process.env.MONGODB_URI
