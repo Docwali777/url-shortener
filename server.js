@@ -18,7 +18,7 @@ console.log(url)
 // || 'mongodb://admin:admin@ds163340.mlab.com:63340/urlshortener'
 // console.log(url)
 // || 'mongodb://admin2:admin2017@ds163340.mlab.com:63340/urlshortener'
-mongoose.connect('mongodb://admin2:admin2017@ds163340.mlab.com:63340/urlshortener', (err)=>{
+mongoose.connect(url, (err)=>{
   if(err){ console.log('error')}
   else{console.log('connected')}
 } )
@@ -51,8 +51,8 @@ if(url !== ''){
     if(err) {throw err}
     console.log('Save successful')
   })
-    res.json({ //render to index page
-      url,
+    res.render('index', { //render to index page
+      url: req.body.url,
       shortenedUrl: `${baseURL}${code}`
     })
 } else {res.send('Please enter URL')}
@@ -64,7 +64,8 @@ let code =req.params.data
 URL.findOne({id: code}, (err, url)=>{
   if(err) {throw err}
   else{
-    res.json(`${url.url}`)
+    res.redirect(url.url)
+
   }
 })
 })
