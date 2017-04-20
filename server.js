@@ -8,12 +8,17 @@ const PORT = process.env.PORT || 3000
 const URL = require('./Schemas/url');
 const random = require('./functions/random')
 const path = require('path');
+const isUrl = require('is-url');
+
+
 
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.static(__dirname + '/public'))
+
 
 var url = process.env.MONGODB_URI
 
-console.log(url)
+//url varia
 mongoose.connect(url, (err)=>{
   if(err){ console.log('error')}
   else{console.log('connected')}
@@ -40,7 +45,8 @@ let url = req.body.url //get form data
 let code = random()   //generate random URL code
 console.log(req.headers.origin)
 var baseURL =req.headers.referer
-if(url !== ''){
+if(url !== '' && isUrl(url)== true){
+  console.log(typeof isUrl(url))
   var newUrl = new URL({ //create mongodb data
     id: code,
     url: url
@@ -52,7 +58,15 @@ if(url !== ''){
       url: req.body.url,
       shortenedUrl: `${req.headers.origin}/newURL/${code}`
     })
-} else {res.send('Please enter URL')}
+} else {res.render('error')}
+})
+
+app.get('/newURL', (req,res)=>{
+  res.render('index', {
+    url: '',
+    shortenedUrl: ''
+
+  })
 })
 
 app.get('/newURL/:data', (req, res)=>{

@@ -1,28 +1,21 @@
 <% include partials/header.ejs  %>
-<!-- <h1>INDEX EJS</h1>
-<form action="/newURL" method="POST">
-  <input type="text" name='url' placeholder="url">
-  <button>Submit</button>
-</form>
-<p>Original URL: <a href="<%= url %>"><%= url %></a></p>
 
-<p>Shortend URL: <a href="<%=shortenedUrl %>"><%= shortenedUrl %></a></p> -->
 <div class="container">
     <div class="jumbotron text-center">
       <h1>URL Shortener Microservice</h1>
+      <h3>Created by: Wali Gauvin, MD</h3>
+      <p><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQLs9xOL97hEGrj3Fc0xbpKdYN2XckF0EjFJ9-pfKA1BGy8sHXdP4OT8HLf" alt=""></p>
     </div>
     <div class="row">
 
   <div class="col-md-10">
     <h1></h1>
-    <div class="form-group">
-      <form action="/newURL" method="POST" >
-      <input type="text" placeholder="Enter Valid URL" name='url'>
-      <button class='btn btn-info'>Submit</button>
+    <div >
+      <% include partials/URLshorteningForm %>
     </div>
     </form>
 
-  <table class='table table-hover table-bordered'>
+  <table class='table table-hover table-responsive'>
 
     <tbody class="table-bordered ">
       <tr class='table-hover'>
@@ -39,16 +32,28 @@
 
   <div>
 <hr>
-    <p>URL </p>
+    <p>Information About URL Shortening </p>
+    <div>
+    <strong>URL shortening</strong> is a technique on the World Wide Web in which a Uniform Resource Locator (URL) may be made substantially <strong>shorter</strong> and still direct to the required page. </br> </br>
+    <p>Other uses of URL shortening are to <strong>"beautify"</strong> a link, track clicks, or disguise the underlying address. </p>
+    </div>
     <p>Example:</p>
-    <p>Orignial URL: <a href="https://en.wikipedia.org/wiki/Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu">https://en.wikipedia.org/wiki/Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu</a> </p>
-    <p>Shortend URL: <a href="http://localhost:3000/new/1GEey">http://localhost:3000/new/1GEey</a></p>
+<table class='table form-group table-hover table-responsive'>
+<tbody>
+  <tr>
+    <td>Orignial URL:</td>
+    <td><a href="https://en.wikipedia.org/wiki/Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu">https://en.wikipedia.org/wiki/Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu</a></td>
+  </tr>
+  <tr>
+    <td>Shortend URL:</td>
+    <td><a href="http://localhost:3000/newURL/Zlc6m">http://localhost:3000/newURL/1GEey</a></td>
+  </tr>
+</tbody>
+</table>
+
+
 </div>
 
-<div>
-<strong>URL shortening</strong> is a technique on the World Wide Web in which a Uniform Resource Locator (URL) may be made substantially shorter and still direct to the required page.
-<p>Other uses of URL shortening are to "beautify" a link, track clicks, or disguise the underlying address. </p>
-</div>
   </div>
   </div>
 </div>
