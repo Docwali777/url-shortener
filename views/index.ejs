@@ -1,9 +1,57 @@
-
-<h1>INDEX EJS</h1>
+<% include partials/header.ejs  %>
+<!-- <h1>INDEX EJS</h1>
 <form action="/newURL" method="POST">
   <input type="text" name='url' placeholder="url">
   <button>Submit</button>
 </form>
 <p>Original URL: <a href="<%= url %>"><%= url %></a></p>
 
-<p>Shortend URL: <a href="<%=shortenedUrl %>"><%= shortenedUrl %></a></p>
+<p>Shortend URL: <a href="<%=shortenedUrl %>"><%= shortenedUrl %></a></p> -->
+<div class="container">
+    <div class="jumbotron text-center">
+      <h1>URL Shortener Microservice</h1>
+    </div>
+    <div class="row">
+
+  <div class="col-md-10">
+    <h1></h1>
+    <div class="form-group">
+      <form action="/newURL" method="POST" >
+      <input type="text" placeholder="Enter Valid URL" name='url'>
+      <button class='btn btn-info'>Submit</button>
+    </div>
+    </form>
+
+  <table class='table table-hover table-bordered'>
+
+    <tbody class="table-bordered ">
+      <tr class='table-hover'>
+        <td>Original URL</td>
+        <td><a href="<%= url %>"><%= url %></a></td>
+      </tr>
+      <tr class='table-hover'>
+        <td>Shortened URL</td>
+        <td><a href="<%= shortenedUrl %>"><%= shortenedUrl %></a></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div>
+<hr>
+    <p>URL </p>
+    <p>Example:</p>
+    <p>Orignial URL: <a href="https://en.wikipedia.org/wiki/Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu">https://en.wikipedia.org/wiki/Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu</a> </p>
+    <p>Shortend URL: <a href="http://localhost:3000/new/1GEey">http://localhost:3000/new/1GEey</a></p>
+</div>
+
+<div>
+<strong>URL shortening</strong> is a technique on the World Wide Web in which a Uniform Resource Locator (URL) may be made substantially shorter and still direct to the required page.
+<p>Other uses of URL shortening are to "beautify" a link, track clicks, or disguise the underlying address. </p>
+</div>
+  </div>
+  </div>
+</div>
+
+</body>
+</html>

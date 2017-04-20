@@ -61,7 +61,6 @@ let code =req.params.data
 URL.findOne({id: code}, (err, url)=>{
   if(err) {throw err}
   else{
-    console.log(url)
     res.redirect(url.url)
 
   }
